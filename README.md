@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-# MODELITE Backend
 
 This is the backend for the MODELITE modeling agency website with Firebase integration, user authentication, and admin panel.
 

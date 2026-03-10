@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - MODELITE</title>
+    <!-- Firebase SDK -->
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
+        import { getAuth, signOut } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDTHesjDxuVZRNLKIQC7LjIO_QEqVKoI6s",
+            authDomain: "modelite-a1887.firebaseapp.com",
+            projectId: "modelite-a1887",
+            storageBucket: "modelite-a1887.firebasestorage.app",
+            messagingSenderId: "317113341158",
+            appId: "1:317113341158:web:fc9a59d9aa86e02bfc1727",
+            measurementId: "G-4L4MRSG442"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const auth = getAuth(app);
+
+        // Make auth available globally
+        window.firebaseAuth = auth;
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #0a0e27;
+            color: #ffffff;
+        }
+
+        .header {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .logout-btn {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform 0.3s;
+        }
+
+        .logout-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .container {
+            padding: 40px;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: #c8a4ff;
+            margin-bottom: 10px;
+        }
+
+        .contacts-section h2 {
+            margin-bottom: 20px;
+            color: #c8a4ff;
+        }
+
+        .contacts-table {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        th {
+            background: rgba(255, 255, 255, 0.1);
+            font-weight: 600;
+            color: #c8a4ff;
+        }
+
+        .status-badge {
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .status-unread {
+            background: rgba(255, 193, 7, 0.2);
+            color: #ffc107;
+        }
+
+        .status-read {
+            background: rgba(76, 175, 80, 0.2);
+            color: #4caf50;
+        }
+
+        .status-responded {
+            background: rgba(33, 150, 243, 0.2);
+            color: #2196f3;
+        }
+
+        .action-btn {
+            background: linear-gradient(45deg, #6c63ff, #5a9cff);
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            font-size: 12px;
+            margin-right: 5px;
+        }
+
+        .message-preview {
+            max-width: 300px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">MODELITE Admin</div>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+
+    <div class="container">
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number" id="totalContacts">0</div>
+                <div>Total Contacts</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="unreadContacts">0</div>
+                <div>Unread Messages</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="readContacts">0</div>
+                <div>Read Messages</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="respondedContacts">0</div>
+                <div>Responded</div>
+            </div>
+        </div>
+
+        <div class="contacts-section">
+            <h2>Contact Form Submissions</h2>
+            <div class="contacts-table">
+                <table id="contactsTable">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Message</th>
+                            <th>Status</th>
+                            <th>Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="contactsBody">
+                        <tr>
+                            <td colspan="7" style="text-align: center; padding: 40px;">Loading...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let contacts = [];
+
+        async function loadContacts() {
+            try {
+                const response = await fetch('/api/contacts');
+                if (response.ok) {
+                    contacts = await response.json();
+                    displayContacts();
+                    updateStats();
+                } else {
+                    window.location.href = '/login';
+                }
+            } catch (error) {
+                console.error('Error loading contacts:', error);
+            }
+        }
+
+        function displayContacts() {
+            const tbody = document.getElementById('contactsBody');
+            tbody.innerHTML = '';
+
+            contacts.forEach(contact => {
+                const date = contact.timestamp ? new Date(contact.timestamp.seconds * 1000).toLocaleDateString() : 'N/A';
+                const statusClass = `status-${contact.status || 'unread'}`;
+                
+                tbody.innerHTML += `
+                    <tr>
+                        <td>${contact.name}</td>
+                        <td>${contact.email}</td>
+                        <td>${contact.phone}</td>
+                        <td class="message-preview">${contact.message}</td>
+                        <td><span class="status-badge ${statusClass}">${contact.status || 'unread'}</span></td>
+                        <td>${date}</td>
+                        <td>
+                            ${contact.status !== 'read' ? '<button class="action-btn" onclick="updateStatus(\'' + contact.id + '\', \'read\')">Mark Read</button>' : ''}
+                            ${contact.status !== 'responded' ? '<button class="action-btn" onclick="updateStatus(\'' + contact.id + '\', \'responded\')">Mark Responded</button>' : ''}
+                        </td>
+                    </tr>
+                `;
+            });
+        }
+
+        function updateStats() {
+            const total = contacts.length;
+            const unread = contacts.filter(c => c.status === 'unread' || !c.status).length;
+            const read = contacts.filter(c => c.status === 'read').length;
+            const responded = contacts.filter(c => c.status === 'responded').length;
+
+            document.getElementById('totalContacts').textContent = total;
+            document.getElementById('unreadContacts').textContent = unread;
+            document.getElementById('readContacts').textContent = read;
+            document.getElementById('respondedContacts').textContent = responded;
+        }
+
+        async function updateStatus(id, status) {
+            try {
+                const response = await fetch(`/api/contacts/${id}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ status })
+                });
+
+                if (response.ok) {
+                    // Update local data
+                    const contact = contacts.find(c => c.id === id);
+                    if (contact) {
+                        contact.status = status;
+                        displayContacts();
+                        updateStats();
+                    }
+                }
+            } catch (error) {
+                console.error('Error updating status:', error);
+            }
+        }
+
+        async function logout() {
+            try {
+                // Sign out from Firebase
+                await signOut(window.firebaseAuth);
+                
+                // Also logout from server session
+                await fetch('/auth/logout', { method: 'POST' });
+                
+                window.location.href = '/login';
+            } catch (error) {
+                console.error('Error logging out:', error);
+                window.location.href = '/login';
+            }
+        }
+
+        // Load contacts on page load
+        loadContacts();
+    </script>
+</body>
+</html>

@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MODELITE – THE MODEL COMPANY</title>
+<link rel="stylesheet" href="styles.css">
+<!-- Firebase SDK -->
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyDTHesjDxuVZRNLKIQC7LjIO_QEqVKoI6s",
+        authDomain: "modelite-a1887.firebaseapp.com",
+        projectId: "modelite-a1887",
+        storageBucket: "modelite-a1887.firebasestorage.app",
+        messagingSenderId: "317113341158",
+        appId: "1:317113341158:web:fc9a59d9aa86e02bfc1727",
+        measurementId: "G-4L4MRSG442"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+</script>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="logo">MODELITE</div>
+        <ul class="nav-links">
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#elite">Elite Group</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>MODELITE</h1>
+        <div class="hero-subtitle">THE MODEL COMPANY</div>
+        <p>The Art of Transformation</p>
+        <p style="font-size: 16px; max-width: 700px;">Where discipline meets elegance, and potential becomes excellence</p>
+        <div class="hero-buttons">
+            <button class="btn" onclick="scrollToSection('elite')">BEGIN YOUR JOURNEY</button>
+            <button class="btn btn-secondary" onclick="window.location.href='/apply'">APPLY AS MODEL</button>
+        </div>
+        <div class="hero-image float-animation">
+            <img src="https://images.unsplash.com/photo-1613915617430-8ab0fd7c6baf?w=800&h=600&fit=crop" alt="Elite Group">
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT SECTION -->
+<section id="about" class="glass-card" style="margin: 120px auto; max-width: 1000px; padding: 60px;">
+    <h2>About MODELITE</h2>
+    <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; font-size: 18px;">Transforming aspiring talents into international fashion icons through discipline, professionalism, and world-class training.</p>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-top: 50px; text-align: center;">
+        <div class="glass-card" style="padding: 30px;">
+            <h3 style="font-size: 32px; color: #c8a4ff;">10+</h3>
+            <p>YEARS OF EXCELLENCE</p>
+        </div>
+        <div class="glass-card" style="padding: 30px;">
+            <h3 style="font-size: 32px; color: #c8a4ff;">500+</h3>
+            <p>TALENTS TRANSFORMED</p>
+        </div>
+        <div class="glass-card" style="padding: 30px;">
+            <h3 style="font-size: 32px; color: #c8a4ff;">100+</h3>
+            <p>BRAND COLLABORATIONS</p>
+        </div>
+        <div class="glass-card" style="padding: 30px;">
+            <h3 style="font-size: 32px; color: #c8a4ff;">20+</h3>
+            <p>GLOBAL PROJECTS</p>
+        </div>
+    </div>
+
+    <div class="glass-card" style="margin-top: 50px; padding: 40px;">
+        <h3>Our Story</h3>
+        <p>MODELITE is not just a modeling agency—it's a transformation hub where raw potential meets global standards. We believe in the power of discipline, professional grooming, and comprehensive training to unlock the model within. Our approach combines international fashion expertise with personalized mentorship, creating talents who don't just walk the runway—they own it.</p>
+    </div>
+</section>
+
+<!-- ELITE GROUP SECTION -->
+<section id="elite" class="elite-group glass-card" style="margin: 120px auto; max-width: 1200px; padding: 60px;">
+    <h2>ELITE GROUP</h2>
+    <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; font-size: 18px;">Advanced Talent Division - Our flagship program designed for talents ready to compete on international platforms.</p>
+    
+    <div class="elite-features">
+        <div class="feature-card glass-card">
+            <h4>High-End Grooming</h4>
+            <p>Master the art of personal presentation with expert styling and grooming techniques</p>
+        </div>
+        <div class="feature-card glass-card">
+            <h4>Runway Mastery</h4>
+            <p>Perfect your walk, posture, and stage presence for international fashion shows</p>
+        </div>
+        <div class="feature-card glass-card">
+            <h4>Camera Confidence</h4>
+            <p>Develop natural expressions and poses that captivate in every frame</p>
+        </div>
+        <div class="feature-card glass-card">
+            <h4>International Portfolio</h4>
+            <p>Build a world-class portfolio that opens doors to global opportunities</p>
+        </div>
+    </div>
+    
+    <div style="text-align: center; margin-top: 50px;">
+        <button class="btn" onclick="scrollToSection('services')">DISCOVER ELITE GROUP</button>
+    </div>
+</section>
+
+<!-- SERVICES SECTION -->
+<section id="services" class="services">
+    <h2>Our Services</h2>
+    <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; font-size: 18px;">Comprehensive training and development programs designed to transform talents into professionals</p>
+    
+    <div class="services-grid">
+        <div class="service-item">
+            <div class="service-image">
+                <img src="https://images.unsplash.com/photo-1611042553484-d61f84d22784?w=400&h=300&fit=crop" alt="Modelling Training">
+            </div>
+            <h3>Modelling Training</h3>
+            <p>Comprehensive training covering runway, posing, expressions, and professional etiquette</p>
+        </div>
+        
+        <div class="service-item">
+            <div class="service-image">
+                <img src="https://images.unsplash.com/photo-1589363358751-ab05797e5629?w=400&h=300&fit=crop" alt="Grooming & Personality Development">
+            </div>
+            <h3>Grooming & Personality Development</h3>
+            <p>Transform your personal style, communication skills, and overall presence</p>
+        </div>
+        
+        <div class="service-item">
+            <div class="service-image">
+                <img src="https://images.pexels.com/photos/336372/pexels-photo-336372.jpeg?w=400&h=300&fit=crop" alt="Portfolio Shoots">
+            </div>
+            <h3>Portfolio Shoots</h3>
+            <p>Professional photography sessions creating stunning portfolios that showcase your versatility</p>
+        </div>
+        
+        <div class="service-item">
+            <div class="service-image">
+                <img src="https://images.unsplash.com/photo-1613909671501-f9678ffc1d33?w=400&h=300&fit=crop" alt="Runway Coaching">
+            </div>
+            <h3>Runway Coaching</h3>
+            <p>Master the catwalk with confidence, grace, and signature style</p>
+        </div>
+        
+        <div class="service-item">
+            <div class="service-image">
+                <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=400&h=300&fit=crop" alt="Brand Collaborations">
+            </div>
+            <h3>Brand Collaborations</h3>
+            <p>Connect with leading fashion brands and secure modeling assignments</p>
+        </div>
+        
+        <div class="service-item">
+            <div class="service-image">
+                <img src="https://images.pexels.com/photos/27523299/pexels-photo-27523299.jpeg?w=400&h=300&fit=crop" alt="Workshops & Masterclasses">
+            </div>
+            <h3>Workshops & Masterclasses</h3>
+            <p>Learn from industry experts through intensive training programs</p>
+        </div>
+    </div>
+</section>
+
+<div class="clients-slider">
+  <div class="clients-track">
+
+    <div class="client-logo">Vogue India</div>
+    <div class="client-logo">Elle Fashion</div>
+    <div class="client-logo">Lakme Fashion Week</div>
+    <div class="client-logo">Fashion TV</div>
+    <div class="client-logo">Cosmopolitan</div>
+    <div class="client-logo">Harper's Bazaar</div>
+    <div class="client-logo">Grazia</div>
+    <div class="client-logo">Femina</div>
+
+    <!-- duplicate for smooth loop -->
+    <div class="client-logo">Vogue India</div>
+    <div class="client-logo">Elle Fashion</div>
+    <div class="client-logo">Lakme Fashion Week</div>
+    <div class="client-logo">Fashion TV</div>
+
+  </div>
+</div>
+<!-- UPCOMING PROJECTS -->
+<section class="upcoming">
+    <h2>Upcoming Projects</h2>
+    <p style="text-align: center; margin-bottom: 40px; font-size: 18px;">Be part of the next big transformation</p>
+    
+    <div class="projects-grid">
+        <div class="project-card">
+            <div class="project-image">
+                <img src="https://images.unsplash.com/photo-1613909671501-f9678ffc1d33?w=400&h=300&fit=crop" alt="Mumbai Fashion Week">
+            </div>
+            <div class="project-content">
+                <div class="project-label">FASHION SHOW</div>
+                <h3>Mumbai Fashion Week</h3>
+                <div class="project-location">Mumbai, India<br>March 2025</div>
+            </div>
+        </div>
+        
+        <div class="project-card">
+            <div class="project-image">
+                <img src="https://images.unsplash.com/photo-1611042553484-d61f84d22784?w=400&h=300&fit=crop" alt="Elite Grooming Masterclass">
+            </div>
+            <div class="project-content">
+                <div class="project-label">WORKSHOP</div>
+                <h3>Elite Grooming Masterclass</h3>
+                <div class="project-location">Delhi, India<br>April 2025</div>
+            </div>
+        </div>
+        
+        <div class="project-card">
+            <div class="project-image">
+                <img src="https://images.pexels.com/photos/336372/pexels-photo-336372.jpeg?w=400&h=300&fit=crop" alt="International Portfolio Sessions">
+            </div>
+            <div class="project-content">
+                <div class="project-label">EVENT</div>
+                <h3>International Portfolio Sessions</h3>
+                <div class="project-location">Bangalore, India<br>May 2025</div>
+            </div>
+        </div>
+        
+        <div class="project-card">
+            <div class="project-image">
+                <img src="https://images.unsplash.com/photo-1627577279497-4b24bf1021b6?w=400&h=300&fit=crop" alt="Runway Intensive Camp">
+            </div>
+            <div class="project-content">
+                <div class="project-label">WORKSHOP</div>
+                <h3>Runway Intensive Camp</h3>
+                <div class="project-location">Hyderabad, India<br>June 2025</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TRANSFORMATION STORIES -->
+<section class="stories">
+    <h2>Transformation Stories</h2>
+    <p style="text-align: center; margin-bottom: 40px; font-size: 18px;">Every face. A transformation.</p>
+    
+    <div class="stories-grid">
+        <div class="story-card">
+            <div class="story-images">
+                <div class="story-image">
+                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=300&h=250&fit=crop" alt="Before">
+                    <div class="story-label">BEFORE</div>
+                </div>
+                <div class="story-image">
+                    <img src="https://images.unsplash.com/photo-1613915617430-8ab0fd7c6baf?w=300&h=250&fit=crop" alt="After">
+                    <div class="story-label">AFTER</div>
+                </div>
+            </div>
+            <h3>Priya Sharma</h3>
+            <div class="story-duration">6 months training</div>
+        </div>
+        
+        <div class="story-card">
+            <div class="story-images">
+                <div class="story-image">
+                    <img src="https://images.pexels.com/photos/27919253/pexels-photo-27919253.jpeg?w=300&h=250&fit=crop" alt="Before">
+                    <div class="story-label">BEFORE</div>
+                </div>
+                <div class="story-image">
+                    <img src="https://images.unsplash.com/photo-1611042553484-d61f84d22784?w=300&h=250&fit=crop" alt="After">
+                    <div class="story-label">AFTER</div>
+                </div>
+            </div>
+            <h3>Rahul Mehta</h3>
+            <div class="story-duration">4 months training</div>
+        </div>
+        
+        <div class="story-card">
+            <div class="story-images">
+                <div class="story-image">
+                    <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=300&h=250&fit=crop" alt="Before">
+                    <div class="story-label">BEFORE</div>
+                </div>
+                <div class="story-image">
+                    <img src="https://images.unsplash.com/photo-1627577279497-4b24bf1021b6?w=300&h=250&fit=crop" alt="After">
+                    <div class="story-label">AFTER</div>
+                </div>
+            </div>
+            <h3>Anjali Kapoor</h3>
+            <div class="story-duration">8 months training</div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section id="contact" class="contact">
+    <div class="contact-container">
+        <h2>Begin Your Journey</h2>
+        <p style="text-align: center; margin-bottom: 50px; font-size: 18px;">Your journey into excellence begins here.</p>
+        
+        <h3 style="text-align: center; margin-bottom: 40px;">Connect With MODELITE</h3>
+        
+        <div class="contact-info">
+            <div class="contact-item">
+                <h4>EMAIL</h4>
+                <p><a href="mailto:connect@modelite.com">connect@modelite.com</a></p>
+            </div>
+            <div class="contact-item">
+                <h4>PHONE</h4>
+                <p><a href="tel:+919876543210">+91 98765 43210</a></p>
+            </div>
+            <div class="contact-item">
+                <h4>LOCATION</h4>
+                <p>Fashion District, Mumbai, India</p>
+            </div>
+        </div>
+
+        <div style="margin-bottom: 50px;">
+            <h4 style="text-align: center; margin-bottom: 20px; color: #c8a4ff;">FOLLOW US</h4>
+            <div class="social-links">
+                <a href="#">Instagram</a>
+                <a href="#">Facebook</a>
+                <a href="#">YouTube</a>
+                <a href="#">Twitter</a>
+            </div>
+        </div>
+
+        <div class="form-container">
+            <h3 style="margin-bottom: 30px;">Get In Touch</h3>
+            <form id="contactForm" action="/contact" method="POST">
+                <div class="form-group">
+                    <label>FULL NAME</label>
+                    <input type="text" name="name" placeholder="Your name" required>
+                </div>
+                <div class="form-group">
+                    <label>EMAIL ADDRESS</label>
+                    <input type="email" name="email" placeholder="Your email" required>
+                </div>
+                <div class="form-group">
+                    <label>PHONE NUMBER</label>
+                    <input type="tel" name="phone" placeholder="Your phone" required>
+                </div>
+                <div class="form-group">
+                    <label>YOUR MESSAGE</label>
+                    <textarea name="message" placeholder="Tell us about yourself..." required></textarea>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">SEND MESSAGE</button>
+            </form>
+            <div id="formMessage" style="margin-top: 20px; text-align: center;"></div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-content">
+        <div style="text-align: center; grid-column: 1 / -1;">
+            <div style="font-size: 24px; font-weight: 700; margin-bottom: 15px;">MODELITE</div>
+            <p style="opacity: 0.8; margin-bottom: 30px;">Transforming aspiring talents into international fashion icons through discipline, professionalism, and world-class training.</p>
+            <div class="social-links">
+                <a href="#">Instagram</a>
+                <a href="#">Facebook</a>
+                <a href="#">YouTube</a>
+                <a href="#">Twitter</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>© 2026 MODELITE - THE MODEL COMPANY. All rights reserved.</p>
+        <p style="margin-top: 20px; font-size: 12px;">
+            <a href="#" style="color: #c8a4ff; text-decoration: none;">Privacy Policy</a> • 
+            <a href="#" style="color: #c8a4ff; text-decoration: none;">Terms of Service</a> • 
+            <a href="#" style="color: #c8a4ff; text-decoration: none;">Cookie Policy</a>
+        </p>
+    </div>
+</footer>
+
+<script>
+
+function scrollToSection(id){
+const section = document.getElementById(id);
+
+if(section){
+section.scrollIntoView({
+behavior:"smooth"
+});
+}
+}
+
+// Smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function (e) {
+e.preventDefault();
+const target = document.querySelector(this.getAttribute('href'));
+if (target) {
+target.scrollIntoView({ behavior: 'smooth' });
+}
+});
+});
+
+// Scroll animations
+const observerOptions = {
+threshold: 0.2,
+rootMargin: '0px 0px -100px 0px'
+};
+
+const observer = new IntersectionObserver(function(entries) {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.style.opacity = '1';
+entry.target.style.transform = 'translateY(0)';
+}
+});
+}, observerOptions);
+
+document.querySelectorAll('.feature-card, .service-item, .project-card, .story-card, .glass-card').forEach(el => {
+
+el.style.opacity = '0';
+el.style.transform = 'translateY(40px)';
+el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+
+observer.observe(el);
+
+});
+
+// Navbar scroll effect
+window.addEventListener("scroll", function(){
+
+const navbar = document.querySelector(".navbar");
+
+if(window.scrollY > 50){
+
+navbar.style.background = "rgba(10,14,39,0.95)";
+navbar.style.boxShadow = "0 10px 30px rgba(0,0,0,0.4)";
+
+}else{
+
+navbar.style.background = "rgba(10,14,39,0.8)";
+navbar.style.boxShadow = "none";
+
+}
+
+});
+
+// Contact form handling
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+
+e.preventDefault();
+
+const formData = new FormData(this);
+const data = Object.fromEntries(formData);
+
+try {
+
+const response = await fetch('/contact', {
+method: 'POST',
+headers: {
+'Content-Type': 'application/json',
+},
+body: JSON.stringify(data)
+});
+
+const result = await response.json();
+const messageDiv = document.getElementById('formMessage');
+
+if (result.success) {
+
+messageDiv.innerHTML = '<p style="color:#c8a4ff;">' + result.message + '</p>';
+this.reset();
+
+} else {
+
+messageDiv.innerHTML = '<p style="color:#ff6b6b;">' + result.message + '</p>';
+
+}
+
+} catch (error) {
+
+console.error('Error:', error);
+document.getElementById('formMessage').innerHTML =
+'<p style="color:#ff6b6b;">An error occurred. Please try again.</p>';
+
+}
+
+});
+
+</script>
+<a href="https://wa.me/919876543210" class="whatsapp-float" target="_blank">💬</a>
+
+<a href="https://instagram.com/modelite" class="instagram-float" target="_blank">📸</a>
+</body>
+</html>

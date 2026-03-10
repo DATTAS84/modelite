@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Portfolio - MODELITE</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Firebase SDK -->
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-analytics.js";
+        import { getAuth } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDTHesjDxuVZRNLKIQC7LjIO_QEqVKoI6s",
+            authDomain: "modelite-a1887.firebaseapp.com",
+            projectId: "modelite-a1887",
+            storageBucket: "modelite-a1887.firebasestorage.app",
+            messagingSenderId: "317113341158",
+            appId: "1:317113341158:web:fc9a59d9aa86e02bfc1727",
+            measurementId: "G-4L4MRSG442"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+        const auth = getAuth(app);
+
+        // Make auth available globally
+        window.firebaseAuth = auth;
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">MODELITE</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="apply.html">Apply as Model</a></li>
+                <li><a href="portfolio.html" class="active">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-portfolio">
+        <div class="hero-content">
+            <h1>Model Portfolio</h1>
+            <p>Discover our talented models and their incredible transformations</p>
+        </div>
+    </section>
+
+    <!-- Portfolio Gallery -->
+    <section class="portfolio-section">
+        <div class="container">
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">All Models</button>
+                <button class="filter-btn" data-filter="female">Female</button>
+                <button class="filter-btn" data-filter="male">Male</button>
+                <button class="filter-btn" data-filter="new">New Faces</button>
+                <button class="filter-btn" data-filter="featured">Featured</button>
+            </div>
+
+            <div class="portfolio-grid" id="portfolioGrid">
+                <!-- Models will be loaded here -->
+            </div>
+
+            <div class="load-more-container">
+                <button class="btn load-more-btn" id="loadMoreBtn">Load More Models</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Model Detail Modal -->
+    <div class="modal" id="modelModal">
+        <div class="modal-content glass-strong">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <div class="model-detail" id="modelDetail">
+                <!-- Model details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>MODELITE</h3>
+                <p>Transforming aspiring talents into international fashion icons</p>
+                <div class="social-links">
+                    <a href="#">Instagram</a>
+                    <a href="#">Facebook</a>
+                    <a href="#">YouTube</a>
+                    <a href="#">Twitter</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="index.html">Home</a>
+                <a href="#about">About Us</a>
+                <a href="#services">Services</a>
+                <a href="apply.html">Apply as Model</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <p>📧 connect@modelite.com</p>
+                <p>📱 +91 98765 43210</p>
+                <p>📍 Fashion District, Mumbai, India</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 MODELITE - THE MODEL COMPANY. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="portfolio.js"></script>
+</body>
+</html>

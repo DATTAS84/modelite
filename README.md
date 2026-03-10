@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # MODELITE Backend
 
 This is the backend for the MODELITE modeling agency website with Firebase integration, user authentication, and admin panel.
@@ -84,3 +85,6 @@ EMAIL_PASS=your-app-password
 SESSION_SECRET=your-secure-random-string
 ```
 - `POST /contact` - Handles contact form submission
+=======
+# modelite
+>>>>>>> af56495c9607e83d698354af17e50ad1c3392bad
